@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta charset="UTF-8"/>
+        <meta name="keywords" content="html5, css3, programacion web"/>
+        <title>Proyecto HTML5</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/estilo_proyecto.css') }}">
+        <script src="{{ url_for('static', filename='scripts/funciones_geo.js') }}"></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    </head>
+    <body>
+        <div id="contenido">
+            <header>
+                <h1 id="titulo_prin">Protecto HTML5</h1>
+            </header>
+            <nav>
+                <ul>
+
+                    <a href="/inicio"><li>Inicio</li></a>
+                    <a href="/html5"><li>HTML5</li></a>
+                    <a href="/galeria"><li>Galeria</li></a>
+                    <a href="/contacto"><li>Contacto</li></a>
+
+                </ul>
+                <h2 id="val_html5">Validacion HTML5</h2>
+            </nav>
+            <section>
+
+                <h2 id="titulo_ini">API Geolocation</h2>
+
+                <div id="map">
+
+                   
+                    <script type="text/javascript">
+
+                        var posicion = navigator.geolocation.getCurrentPosition(ejecutar, gestion);
+
+                        function ejecutar(posicion){
+
+                            var mapsipe = L.map('map').
+                            setView([posicion.coords.latitude, posicion.coords.longitude], 
+                            15);
+                            
+                            L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+                                maxZoom: 18
+                            }).addTo(mapsipe);
+                            
+                            var marker = L.marker([posicion.coords.latitude, posicion.coords.longitude]).addTo(mapsipe);
+                            marker.bindPopup("<b>Hola!</b><br>Te encuentras aquí.").openPopup();
+
+                        }
+
+                        function gestion(error){
+                        
+                            if(error.code==1){
+                        
+                                alert("Debe permitir la obtencion de su localizacion en el navegador");
+                        
+                            }else if(error.code==2){
+                        
+                                alert("La ubicacion no esta disponible");
+                        
+                            }else if(error.code==3){
+                        
+                                alert("Se agoto el tiempo de espera");
+                        
+                            }
+
+                        }
+                  </script>
+
+                </div>
+                
+                <figure>
+                    <img src="{{ url_for('static', filename='images/alfiler.png') }}" title="¿Donde estoy?" id="pin">
+                </figure>
+
+            </section>
+            <div><p id="portafolio">Visita mi <a href="https://github.com/ricardoglod13?tab=repositories" target="_blank">portafolio de GitHub</a></p></div>
+        </div>
+        <footer>
+
+            <cite>Derechos de Autor Ricardo Sanchez</cite><br>
+            <cite>Iconos diseñados por <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a></cite>
+            
+        </footer>
+
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </body>
+</html>
