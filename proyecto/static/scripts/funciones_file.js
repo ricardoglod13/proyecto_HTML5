@@ -81,8 +81,6 @@ function mostrar(e){
     var letrero = document.getElementById("letrero");
 
     caja.style.backgroundImage="url('" + result +"')";
-    caja.style.backgroundRepeat="no-repeat";
-    caja.style.backgroundSize="cover";
     letrero.style.display="none";
 
 }
