@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta charset="UTF-8"/>
+        <meta name="keywords" content="html5, css3, javascript, programacion web"/>
+        <title>Proyecto HTML5</title>
+        <link rel="stylesheet" href="static/styles/estilo_proyecto.css">
+        <script src="static/scripts/funcion_contacto.js"></script>
+
+    </head>
+    <body>
+        <div id="contenido">
+            <header>
+                <h1 id="titulo_prin">Protecto HTML5</h1>
+            </header>
+            <nav>
+                <ul>
+
+                    <a href="index.html"><li>Inicio</li></a>
+                    <a href="html5_html5.html"><li>HTML5</li></a>
+                    <a href="galeria_html5.html"><li>Galeria</li></a>
+                    <a href="contacto_html5.html"><li>Contacto</li></a>
+
+                </ul>
+                <h2 id="val_html5">Validacion HTML5</h2>
+            </nav>
+            <section>
+                <div id="texto">
+
+                    <h2 id="titulo_ini">Contactame</h2>
+
+                    <form action="/agg_contacto" method="POST">
+
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre"  name="nombre" placeholder="Requerido" required>
+                        <label for="correo">Correo</label>
+                        <input type="email" id="correo" name="correo"  placeholder="Requerido" required>
+                        <label for="edad">Edad</label>
+                        <input type="number" id="edad" name="edad" min="18" max="120">  
+                        <p id="min_edad">Edad minima permitida 18</p>
+                        <label for="calificacion">Calificame</label>
+                        <input type="range" id="calificacion" name="calificacion" value="0" min="0" max="10">
+                        <label for="fecha">Fecha</label>
+                        <input type="date" id="fecha" name="fecha" required>
+                        <label for="expliacion">¿Porque me escribes?</label>
+                        <textarea id="explicacion" name="explicacion" cols="30" rows="10" required></textarea>
+                        <button type="submit" id="enviar" name="enviar">Enviar</button>
+
+
+                    </form>
+
+                </div>
+            </section>
+            <div><p>Visita mi <a href="https://github.com/ricardoglod13?tab=repositories" target="_blank">portafolio de GitHub</a></p></div>
+        </div>
+        <footer>
+
+            <cite>Derechos de Autor Ricardo Sanchez</cite><br>
+            <cite>Iconos diseñados por <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a></cite>
+            
+        </footer>
+
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </body>
+</html>
